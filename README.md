@@ -9,3 +9,8 @@ numbers.
 use parenthesis in equations.
 
 # Install
+
+<pre><code>
+git clone https://github.com/LEDparty/cmath-with-arrays
+cd cmath-with-arrays
+</pre></code>
