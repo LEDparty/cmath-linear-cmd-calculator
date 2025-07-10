@@ -26,7 +26,7 @@ void solve_once( int type_code, int argc, char *argv[] )
             parse_long_double(argc, argv);
             break;
         default:
-            printf("Something went wrong here: solve_route error\n");
+            printf("solve_once error\n");
             exit(EXIT_FAILURE);
     }
 }
@@ -119,7 +119,7 @@ void REPL(int type_code)
                 parse_long_double(total, user_input);
                 break;
             default:
-                printf("Something went wrong here: solve_route error\n");
+                printf("REPL error\n");
                 exit(EXIT_FAILURE);
         }
     }
@@ -184,7 +184,7 @@ int parse_int( int total, char *user_input[] )
                 answer = answer % operands[i + 1];
                 break;
             default:
-                printf("Something went wrong\n");
+                printf("parse_int error\n");
                 exit(EXIT_FAILURE);
         }
     }
@@ -244,7 +244,7 @@ int parse_long( int total, char *user_input[] )
                 answer = answer % operands[i + 1];
                 break;
             default:
-                printf("Something went wrong\n");
+                printf("parse_long error\n");
                 exit(EXIT_FAILURE);
         }
     }
@@ -302,7 +302,7 @@ int parse_float( int total, char *user_input[] )
                 answer = answer / operands[i + 1];
                 break;
             default:
-                printf("Something went wrong\n");
+                printf("parse_float error\n");
                 exit(EXIT_FAILURE);
         }
     }
@@ -359,7 +359,7 @@ int parse_double( int total, char *user_input[] )
                 answer = answer / operands[i + 1];
                 break;
             default:
-                printf("Something went wrong\n");
+                printf("parse double error\n");
                 exit(EXIT_FAILURE);
         }
     }
@@ -417,7 +417,7 @@ int parse_long_double( int total, char *user_input[] )
                 answer = answer / operands[i + 1];
                 break;
             default:
-                printf("Something went wrong\n");
+                printf("parse_double error\n");
                 exit(EXIT_FAILURE);
         }
     }
