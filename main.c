@@ -39,6 +39,8 @@ void help_msg()
 
 int main( int argc, char *argv[] )
 {
+    //putting this here prevents segmentation core fault
+    //when no arguments are passed
     if(!argv[1])
     {
         help_msg();
@@ -67,4 +69,8 @@ int main( int argc, char *argv[] )
             return 0;
         }
     }
+
+    help_msg();
+
+    return 1;
 }
