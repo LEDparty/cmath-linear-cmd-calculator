@@ -60,9 +60,6 @@ void REPL(int type_code)
 
         while ((c = getchar()) != '\n')
         {
-             //allow user to enter letters to exit
-             //needs to fixed, doesn't currently work:
-             //refer to your averages program
             if (c == ' ')
             {
                 string_buffer[i] = '\0';
@@ -93,10 +90,6 @@ void REPL(int type_code)
             strcpy(user_input[total++], string_buffer);
         }
 
-       
-        //time to test this with -int type to see
-        //what happens...
-        //gcc parse.h solve.c main.c -o cmath
         switch(type_code)
         {
             case 0:
@@ -126,11 +119,6 @@ void REPL(int type_code)
 //for a particular type
 int parse_int( int total, char *user_input[] )
 {
-    //copy this to the rest of the equations and change
-    //data declaration type and this should work along
-    //with conversion function
-    //
-   
     int string_length = total - 1;
 
     int operands[MAX] = {0};
@@ -143,15 +131,15 @@ int parse_int( int total, char *user_input[] )
     {
         if (i % 2 == 1)
         {
+            //operand
             sscanf( user_input[i], "%c", &operators[conversion_index] );
-            operands[conversion_index] = 0; // filler
-            // Operand
+            operands[conversion_index] = 0; //filler
         }
         else
         {
-            // Operator
+            //operator
             operands[conversion_index] = atoi( user_input[i] );
-            operators[conversion_index] = '0'; // filler
+            operators[conversion_index] = '0'; //filler
         }
 
         conversion_index++;
@@ -196,7 +184,6 @@ int parse_long( int total, char *user_input[] )
     long operands[MAX] = {0};
     char operators[MAX] = {0};
 
-    //index for the new arrays from the old user_input
     int conversion_index = 0;
 
     for (int i = 2; i <= string_length; i++)
@@ -204,22 +191,19 @@ int parse_long( int total, char *user_input[] )
         if (i % 2 == 1)
         {
             sscanf( user_input[i], "%c", &operators[conversion_index] );
-            operands[conversion_index] = 0; // filler
-            // Operand
+            operands[conversion_index] = 0; 
         }
         else
         {
-            // Operator
             operands[conversion_index] = atol( user_input[i] );
-            operators[conversion_index] = '0'; // filler
+            operators[conversion_index] = '0'; 
         }
 
         conversion_index++;
     }
 
     long answer = operands[0];
-    //start at one to make the operators the basis for
-    //this loop
+
     for(int i = 1; i < conversion_index; i += 2)
     {
         switch( operators[i] )
@@ -256,7 +240,6 @@ int parse_float( int total, char *user_input[] )
     float operands[MAX] = {0};
     char operators[MAX] = {0};
 
-    //index for the new arrays from the old user_input
     int conversion_index = 0;
     char *end;
 
@@ -265,22 +248,19 @@ int parse_float( int total, char *user_input[] )
         if (i % 2 == 1)
         {
             sscanf( user_input[i], "%c", &operators[conversion_index] );
-            operands[conversion_index] = 0; // filler
-            // Operand
+            operands[conversion_index] = 0; 
         }
         else
         {
-            // Operator
             operands[conversion_index] = strtof( user_input[i], &end );
-            operators[conversion_index] = '0'; // filler
+            operators[conversion_index] = '0'; 
         }
 
         conversion_index++;
     }
 
     float answer = operands[0];
-    //start at one to make the operators the basis for
-    //this loop
+
     for(int i = 1; i < conversion_index; i += 2)
     {
         switch( operators[i] )
@@ -314,7 +294,6 @@ int parse_double( int total, char *user_input[] )
     double operands[MAX] = {0};
     char operators[MAX] = {0};
 
-    //index for the new arrays from the old user_input
     int conversion_index = 0;
 
     for (int i = 2; i <= string_length; i++)
@@ -322,22 +301,19 @@ int parse_double( int total, char *user_input[] )
         if (i % 2 == 1)
         {
             sscanf( user_input[i], "%c", &operators[conversion_index] );
-            operands[conversion_index] = 0; // filler
-            // Operand
+            operands[conversion_index] = 0; 
         }
         else
         {
-            // Operator
             operands[conversion_index] = atof( user_input[i] );
-            operators[conversion_index] = '0'; // filler
+            operators[conversion_index] = '0'; 
         }
 
         conversion_index++;
     }
 
     double answer = operands[0];
-    //start at one to make the operators the basis for
-    //this loop
+
     for(int i = 1; i < conversion_index; i += 2)
     {
         switch( operators[i] )
@@ -371,7 +347,6 @@ int parse_long_double( int total, char *user_input[] )
     long double operands[MAX] = {0};
     char operators[MAX] = {0};
 
-    //index for the new arrays from the old user_input
     int conversion_index = 0;
     char *end;
 
@@ -380,22 +355,19 @@ int parse_long_double( int total, char *user_input[] )
         if (i % 2 == 1)
         {
             sscanf( user_input[i], "%c", &operators[conversion_index] );
-            operands[conversion_index] = 0; // filler
-            // Operand
+            operands[conversion_index] = 0; 
         }
         else
         {
-            // Operator
             operands[conversion_index] = strtold( user_input[i], &end );
-            operators[conversion_index] = '0'; // filler
+            operators[conversion_index] = '0'; 
         }
 
         conversion_index++;
     }
 
     long double answer = operands[0];
-    //start at one to make the operators the basis for
-    //this loop
+
     for(int i = 1; i < conversion_index; i += 2)
     {
         switch( operators[i] )
