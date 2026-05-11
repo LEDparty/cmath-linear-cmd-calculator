@@ -1,5 +1,10 @@
-//make functions available across files
+//make everything available across files
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<ctype.h>
 #define MAX 51
+
 void solve_once( int type_code, int argc, char *argv[] );
 void REPL(int type);
 
