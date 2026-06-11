@@ -1,37 +1,36 @@
-//includes all input functions
-#include"parse.h"
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<ctype.h>
+#include"solve.h"
 
-//global variables for easy error and type matching
-char *options[] = {"-int", "-long", "-float", "-double", "-ld"};
-int available_options = sizeof(options) / sizeof( options[0] );
+//global variables for easy error detection and type matching
+char *options[] = {"-short", "-unsigned-short", "-int", "-unsigned-int", "-long", "-unsigned-long", "-long-long", \
+				   "-unsigned-long-long","-float", "-double", "-long-double"};
+
+int available_options = sizeof(options) / sizeof(options[0] );
 
 void help_msg()
 {
-    printf("Usage: cmath <type> <operands/operators>\n");
-    printf("Or, run with type alone to keep solving indefinetly.\n");
+    printf("Usage: cmath [-short|-ushort|-int|etc.] <operands/operators>\n");
+    printf("--or--\n\n");
+    printf("Usage: cmath [-short|-ushort|-int|etc.]\n");
     puts("");
     printf("Accepted operators for integers: +, -, *, /, %\n");
     printf("Accepted operators for float types: +, -, *, /\n");
     printf("If running running once, use quotes for multiplication\n");
     printf("operator ('*') to keep shell expansion from occurring.\n");
     puts("");
-    printf("Example: cmath -int 4 / 2 '*' 5");
+    printf("Examples: cmath -int 4 / 2 '*' 5, cmath -long-double");
+    puts("");
     puts("");
     printf("Types allowed: ");
-
-    int last_item = available_options - 1;
+    puts("");
+    puts("");
 
     for(int i = 0; i < available_options; i++)
     {
-        //print last item on list differently
-        if(i != last_item)
-        {
-            printf("%s, ", options[i]);
-        }
-        else
-        {
-            printf("%s.\n", options[i]);
-        }
+		printf("%s\n", options[i]);
     }
 }
 
@@ -48,10 +47,8 @@ int main( int argc, char *argv[] )
 
     for(int type_code = 0; type_code < available_options; type_code++)
     {
-        //type codes correspond with global array "options":
-        //0 for short, 1 for integer, 2 for long, 3 for float,
-        //4 for double, 5 for long double
-        if( strcmp( type, options[type_code] ) == 0 ) 
+        //type codes correspond with global array "options"
+        if(strcmp(type, options[type_code] ) == 0) 
         {
             if(argc > 2)
             {
@@ -65,4 +62,8 @@ int main( int argc, char *argv[] )
             return 0;
         }
     }
+
+	help_msg();
+
+	return 1;
 }

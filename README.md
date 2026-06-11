@@ -1,19 +1,17 @@
 This was both a mental experiment and has practical uses
 for people learning C to see how a C math equation should
-turn out. Limitations:
+turn out. The problem with it is that it uses arrays, so
+it's not capable of parenthesis and order of operations.
 
--doesn't do an exact float calculation, as you have to
-ensure the compiler does float by putting "f" next to the
-numbers.
-
--it's linear, so you can't do real order of operations or
-use parenthesis in equations. Problems will be solved from left
-to right despite the operators.
+Since it works, it's considered a completed project, and
+no more data types will be added since it currently has all
+data types that are native to the C language, without the
+kinds that are available with pre-defined macros.
 
 # Install
 
 <pre><code>
-git clone https://github.com/LEDparty/cmath-with-arrays
+git clone https://github.com/LEDparty/cmath-linear-cmd-calculator
 cd cmath-with-arrays
 make
 </pre></code>
