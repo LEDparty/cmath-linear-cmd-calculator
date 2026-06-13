@@ -8,7 +8,7 @@
  *as macros so that we don't have to have a separate function for each type.
  *Each time, the arrays are set up with separate ones for operators and operands,
  *converted to the corrected numeric type from strings, represented as "std_function",
- *before solving. "string_length" is just the size of the 
+ *before solving. 
  *
  *The first of these macros solves equations with integer types, the second one does 
  *floating point since the standard library functions have slightly different 

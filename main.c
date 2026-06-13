@@ -1,8 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include<ctype.h>
 #include"solve.h"
+
+#define TYPE 1
 
 //global variables for easy error detection and type matching
 char *options[] = {"-short", "-unsigned-short", "-int", "-unsigned-int", "-long", "-unsigned-long", "-long-long", \
@@ -36,14 +37,14 @@ void help_msg()
 
 int main( int argc, char *argv[] )
 {
-    if(!argv[1])
+    if(!argv[TYPE])
     {
         help_msg();
 
         return 1;
     }
 
-    char *type = argv[1];
+    char *type = argv[TYPE];
 
     for(int type_code = 0; type_code < available_options; type_code++)
     {
