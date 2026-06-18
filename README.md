@@ -12,7 +12,7 @@ kinds that are available with pre-defined macros.
 
 <pre><code>
 git clone https://github.com/LEDparty/cmath-linear-cmd-calculator
-cd cmath-with-arrays
+cd cmath-linear-cmd-calculator
 make
 </pre></code>
 
