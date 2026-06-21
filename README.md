@@ -51,9 +51,9 @@ answer and an exit:
 
 This will produce an answer as ```answer = 8``` as the output.
 
-If you want to multiply, you have to put the asterisks in quotes or
-else bash will expand the answer as a wild card (giving you a wildly
-wrong answer). Example:
+If you want to multiply from the command line (this doesn't apply to REPL),
+you have to put the asterisks in quotes or else bash will expand the answer
+as a wild card (giving you a wildly wrong answer). Example:
 
 <pre><code>
 ./cmath -int 2 "*" 6

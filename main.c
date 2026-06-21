@@ -9,6 +9,8 @@ char *options[] = {"-short", "-unsigned-short", "-int", "-unsigned-int", "-long"
 
 int available_options = sizeof(options) / sizeof(options[0] );
 
+//the command line parser/interface: decides whether user needs help,
+//data type for equation answers, and mode (solve once or REPL)
 int main(int argc, char *argv[] )
 {
     if(!argv[TYPE])
